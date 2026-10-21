@@ -1,4 +1,15 @@
-### Project Name
+# Distributed System Simulation
+This project simulates a distributed job-processing system using separate applications that communicate over sockets.
+
+
+The system includes:
+
+- A master that receives jobs from clients and assigns them to slaves based on workload.
+- Slave-A and Slave-B, optimized for different job types.
+- Clients that submit jobs and receive completion notifications.
+
+The project uses multiple threads, shared memory, and locking so jobs and status messages can be handled concurrently.
+Each step is printed to the console to demonstrate accurate communication throughout the program.
 
 Notes:
 1 Master Program - needs threads for constantly checking for new jobs and sending them to the slaves
@@ -19,14 +30,3 @@ Threads (ListenerThread and TrasmitterThread Thread Classes)
 - Master has listening to clients, listening to slaves, trasmitting jobs to slaves, trasmitting jobs to clients
 - Slaves have processing job threads - part of the job process is to get it from the master and send it back 
 - Clients receive user input, trasmit jobs to master, listen from master, trasmit to user 
-
-
-
-
-### Screenshots
-
-Put screenshots here
-
-#### Links
-
-- [name](http://url)
