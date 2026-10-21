@@ -1,3 +1,5 @@
+package distributedsystem;
+
 import java.io.*;
 import java.net.*;
 
@@ -9,7 +11,7 @@ public class Client {
         if (args.length != 2)
         {
             System.err.println(
-                    "Usage: java Client <host name> <port number>");
+                    "Usage: java distributedsystem.Client <host name> <port number>");
             System.exit(1);
         }
 
