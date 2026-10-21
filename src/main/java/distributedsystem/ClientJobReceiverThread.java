@@ -23,15 +23,11 @@ public class ClientJobReceiverThread extends Thread
                 clientSocket;
                 PrintWriter requestWriter = // stream to write text requests to server
                         new PrintWriter(clientSocket.getOutputStream(), true);
-                BufferedReader responseReader = // stream to read text response from server
-                        new BufferedReader(
-                                new InputStreamReader(clientSocket.getInputStream()));
                 BufferedReader stdIn = // standard input stream to get user's requests
                         new BufferedReader(
                                 new InputStreamReader(System.in))
         ) {
             String userInput;
-            String serverResponse;
             while ((userInput = stdIn.readLine()) != null)
             {
                 if (userInput.equalsIgnoreCase("A") || userInput.equalsIgnoreCase("B"))
@@ -39,8 +35,6 @@ public class ClientJobReceiverThread extends Thread
                     String jobName = userInput + nextIdNumber;
                     nextIdNumber++;
                     requestWriter.println(jobName); // send request to server
-                    serverResponse = responseReader.readLine();
-                    System.out.println(serverResponse);
                 } else
                 {
                     System.out.println("Invalid input. Please enter 'A' or 'B'.");
