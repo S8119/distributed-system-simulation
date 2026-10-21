@@ -17,7 +17,7 @@ public class ClientListenToServerThread extends Thread
     {
         try (
                 clientSocket;
-                BufferedReader responseReader= // stream to read text response from server
+                BufferedReader responseReader = // stream to read text response from server
                         new BufferedReader(
                                 new InputStreamReader(clientSocket.getInputStream()));
         )
@@ -27,8 +27,7 @@ public class ClientListenToServerThread extends Thread
             {
                 System.out.println(serverResponse);
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             System.err.println("Error in ClientListenToServerThread: " + e.getMessage());
             System.exit(1);

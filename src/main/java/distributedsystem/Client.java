@@ -23,8 +23,7 @@ public class Client {
         try
         {
             portNumber = Integer.parseInt(args[1]);
-        }
-        catch (NumberFormatException e)
+        } catch (NumberFormatException e)
         {
             System.err.println("Port number must be an integer.");
             System.exit(1);
