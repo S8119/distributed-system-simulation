@@ -24,9 +24,9 @@ Clients
 - get back messages from the server that says done
 - informs the user the job is done
 
-Threads (ListenerThread and TrasmitterThread Thread Classes)
+Threads (ListenerThread and TransmitterThread Thread Classes)
 - an object in it of itself 
 - create ones for different components 
-- Master has listening to clients, listening to slaves, trasmitting jobs to slaves, trasmitting jobs to clients
+- Master has listening to clients, listening to slaves, transmitting jobs to slaves, transmitting jobs to clients
 - Slaves have processing job threads - part of the job process is to get it from the master and send it back 
-- Clients receive user input, trasmit jobs to master, listen from master, trasmit to user 
+- Clients receive user input, transmit jobs to master, listen from master, transmit to user 
