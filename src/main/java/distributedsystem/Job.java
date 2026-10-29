@@ -5,7 +5,7 @@ public class Job
     private String type; //A or B
     private int id;
 
-    Job(String type, int id)
+    Job (String type, int id)
     {
         this.type = type;
         this.id = id;
@@ -20,7 +20,8 @@ public class Job
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return type + id;
     }
 }
