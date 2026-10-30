@@ -41,6 +41,9 @@ public class SlaveListenToMasterThread extends Thread {
         }
     }
 
-    //delegateJob method here
+    private String delegateJob(Job job)
+    {
+        return null;
+    }
 }
 
