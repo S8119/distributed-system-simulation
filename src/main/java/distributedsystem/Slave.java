@@ -7,8 +7,8 @@ public class Slave
     private String optimalJob;
     private Queue<Job> waitingJobs;
 
-    long OPTIMAL_JOB_PROCESS_TIME = 2000;
-    long REGULAR_JOB_PROCESS_TIME = 10000;
+    private static final long OPTIMAL_JOB_PROCESS_TIME = 2000;
+    private static final long REGULAR_JOB_PROCESS_TIME = 10000;
 
     Slave(String optimalJob) {
         this.optimalJob = optimalJob;
