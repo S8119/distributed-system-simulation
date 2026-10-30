@@ -6,6 +6,9 @@ public class Slave {
     private String optimalJob;
     private Queue<Job> waitingJobs;
 
+    long OPTIMAL_JOB_PROCESS_TIME = 2000;
+    long REGULAR_JOB_PROCESS_TIME = 10000;
+
     Slave (String optimalJob) {
         this.optimalJob = optimalJob;
         waitingJobs = new Queue<Job>();
@@ -16,9 +19,6 @@ public class Slave {
     }
 
     public void beginProcessing (Queue<Job> waitingJobs) {
-        long OPTIMAL_JOB_PROCESS_TIME = 2000;
-        long REGULAR_JOB_PROCESS_TIME = 10000;
-
         while (!waitingJobs.isEmpty()) {
             Job currJob = waitingJobs.remove();
             String currJobType = currJob.getType();
