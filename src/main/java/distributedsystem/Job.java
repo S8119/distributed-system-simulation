@@ -5,7 +5,7 @@ public class Job
     private String type; //A or B
     private int id;
 
-    Job (String type, int id)
+    Job(String type, int id)
     {
         this.type = type;
         this.id = id;

@@ -8,7 +8,7 @@ public class ClientListenToServerThread extends Thread
 {
     private final Socket clientSocket;
 
-    public ClientListenToServerThread (Socket clientSocket)
+    public ClientListenToServerThread(Socket clientSocket)
     {
         this.clientSocket = clientSocket;
     }

@@ -2,14 +2,15 @@ package distributedsystem;
 
 import java.util.Queue;
 
-public class Slave {
+public class Slave
+{
     private String optimalJob;
     private Queue<Job> waitingJobs;
 
     long OPTIMAL_JOB_PROCESS_TIME = 2000;
     long REGULAR_JOB_PROCESS_TIME = 10000;
 
-    Slave (String optimalJob) {
+    Slave(String optimalJob) {
         this.optimalJob = optimalJob;
         waitingJobs = new Queue<Job>();
     }
@@ -18,7 +19,7 @@ public class Slave {
         return optimalJob;
     }
 
-    public void beginProcessing (Queue<Job> waitingJobs) {
+    public void beginProcessing(Queue<Job> waitingJobs) {
         while (!waitingJobs.isEmpty()) {
             Job currJob = waitingJobs.remove();
             String currJobType = currJob.getType();
@@ -37,7 +38,7 @@ public class Slave {
         }
     }
 
-    public void addJob (Job newJob) {
+    public void addJob(Job newJob) {
         waitingJobs.add(newJob);
     }
 }
