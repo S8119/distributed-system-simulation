@@ -12,7 +12,7 @@ public class ClientJobReceiverThread extends Thread
     private final Socket clientSocket;
     private static int nextIdNumber;
 
-    public ClientJobReceiverThread (Socket clientSocket)
+    public ClientJobReceiverThread(Socket clientSocket)
     {
         this.clientSocket = clientSocket;
     }
