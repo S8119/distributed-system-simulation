@@ -42,4 +42,15 @@ public class Slave
     public void addJob(Job newJob) {
         waitingJobs.add(newJob);
     }
+
+
+    static Slave delegateJob(Job job, Slave slaveA, Slave slaveB)
+    {
+        if(job.getType().equals(slaveA.getOptimalJob()))
+        {
+            return slaveA;
+        } else {
+            return slaveB;
+        }
+    }
 }
