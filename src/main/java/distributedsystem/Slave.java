@@ -46,8 +46,7 @@ public class Slave
 
     static Slave delegateJob(Job job, Slave slaveA, Slave slaveB)
     {
-        if(job.getType().equals(slaveA.getOptimalJob()))
-        {
+        if (job.getType().equals(slaveA.getOptimalJob())) {
             return slaveA;
         } else {
             return slaveB;
