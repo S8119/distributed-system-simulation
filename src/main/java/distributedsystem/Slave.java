@@ -2,6 +2,7 @@ package distributedsystem;
 
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Slave
 {
@@ -13,7 +14,7 @@ public class Slave
 
     Slave(String optimalJob) {
         this.optimalJob = optimalJob;
-        waitingJobs = new LinkedBlockingDeque<>();
+        waitingJobs = new LinkedBlockingQueue<>();
     }
 
     public String getOptimalJob() {
