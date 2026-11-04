@@ -4,11 +4,18 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
+
+
 public class SlaveListenToMasterThread extends Thread {
     private final Socket slaveSocket;
+    private final Slave slaveA;
+    private final Slave slaveB;
 
     public SlaveListenToMasterThread(Socket clientSocket) {
         this.slaveSocket = clientSocket;
+        this.slaveA = new Slave("A");
+        this.slaveB = new Slave("B");
+
     }
 
     public void run() {
@@ -21,18 +28,10 @@ public class SlaveListenToMasterThread extends Thread {
             String serverResponse;
             while ((serverResponse = responseReader.readLine()) != null) {
                 Job job = new Job(serverResponse.substring(0, 1),
-                                  Integer.getInteger(serverResponse.substring(1)));
+                                  Integer.parseInt(serverResponse.substring(1)));
                 System.out.println("Received job: " + job.toString());
 
-                Slave slaveA = new Slave("A");
-                Slave slaveB = new Slave("B");
-
-                String delegatedSlave = delegateJob(job); //returns name of delegated slave
-                if (delegatedSlave.equals("A")) {
-                    slaveA.addJob(job);
-                } else {
-                    slaveB.addJob(job);
-                }
+               Slave.delegateJob(job, slaveA, slaveB);
 
             }
         } catch (Exception e) {
@@ -41,9 +40,6 @@ public class SlaveListenToMasterThread extends Thread {
         }
     }
 
-    private String delegateJob(Job job)
-    {
-        return null;
-    }
+
 }
 
