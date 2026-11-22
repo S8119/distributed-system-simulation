@@ -15,7 +15,7 @@ public class Slave
 
     Slave(String optimalJob) {
         this.optimalJob = optimalJob;
-        waitingJobs = new LinkedBlockingQueue<Job>();
+        waitingJobs = new LinkedBlockingQueue<>();
     }
 
     public String getOptimalJob() {
@@ -52,8 +52,6 @@ public class Slave
                     "Usage: java Slave <optimal job (A or B)>");
             System.exit(1);
         }
-
-        Slave slave = new Slave(args[0]);
         try (Socket clientSocket = new Socket(hostName, portNumber))
         {
             SlaveListenToMasterThread slaveListenToMasterThread = new SlaveListenToMasterThread(clientSocket, args[0]);
