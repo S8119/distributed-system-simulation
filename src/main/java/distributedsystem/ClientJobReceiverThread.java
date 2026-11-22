@@ -15,6 +15,7 @@ public class ClientJobReceiverThread extends Thread
     public ClientJobReceiverThread(Socket clientSocket)
     {
         this.clientSocket = clientSocket;
+        nextIdNumber = 1;
     }
 
     public void run()

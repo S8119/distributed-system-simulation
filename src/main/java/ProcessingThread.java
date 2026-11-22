@@ -18,7 +18,7 @@ public class ProcessingThread extends Thread
     {
         this.socket = socket;
         this.slaveType = slaveType;
-        fastDelay = 20000;
+        fastDelay = 2000;
         slowDelay = 10000;
     }
 
