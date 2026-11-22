@@ -58,8 +58,7 @@ public class MasterListenToSlaveThread extends Thread
                     }
                 }
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             System.err.println("Error in MasterListenToSlaveThread: " + e.getMessage());
             System.exit(1);

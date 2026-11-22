@@ -47,15 +47,33 @@ public class Slave
 
     public static void main(String[] args)
     {
-        if (args.length != 1 || (!args[0].equals("A") && !args[0].equals("B"))){
+        if (args.length != 3 || (!args[0].equals("A") && !args[0].equals("B")))
+        {
             System.err.println(
-                    "Usage: java Slave <optimal job (A or B)>");
+                    "Usage: java Slave <optimal job (A or B)> <master host name> <master port number>");
             System.exit(1);
         }
+
+        String hostName = args[1];
+        // Arbitrary initialization to avoid compilation error, will be set in the try-catch block below
+        int portNumber = 0;
+        try
+        {
+            portNumber = Integer.parseInt(args[2]);
+        } catch (NumberFormatException e)
+        {
+            System.err.println("Port number must be an integer.");
+            System.exit(1);
+        }
+
         try (Socket clientSocket = new Socket(hostName, portNumber))
         {
             SlaveListenToMasterThread slaveListenToMasterThread = new SlaveListenToMasterThread(clientSocket, args[0]);
             slaveListenToMasterThread.start();
+        } catch (Exception e)
+        {
+            System.err.println("Error connecting to master: " + e.getMessage());
+            System.exit(1);
         }
     }
 }

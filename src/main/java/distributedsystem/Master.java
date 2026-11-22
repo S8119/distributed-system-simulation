@@ -38,8 +38,7 @@ public class Master
             MasterListenToSlaveThread masterListenToSlaveThread =
                     new MasterListenToSlaveThread(serverSocket, inProgressJobs);
             masterListenToSlaveThread.start();
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             System.err.println("Error starting server: " + e.getMessage());
             System.exit(1);

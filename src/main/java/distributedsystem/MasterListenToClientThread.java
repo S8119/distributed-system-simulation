@@ -42,14 +42,13 @@ public class MasterListenToClientThread extends Thread
                 try
                 {
                     jobNumber = Integer.parseInt(clientMessage.substring(1));
-                }
-                catch (NumberFormatException e)
+                } catch (NumberFormatException e)
                 {
                     System.err.println("Job number must be an integer.");
                     System.exit(1);
                 }
 
-                synchronized(inProgressJobs)
+                synchronized (inProgressJobs)
                 {
                     Job inProgressJob = new Job(jobType, jobNumber, clientMessage);
                     inProgressJobs.put(jobNumber, inProgressJob);
@@ -59,14 +58,12 @@ public class MasterListenToClientThread extends Thread
                 if (slaveToUse.equals("A"))
                 {
                     slaveAWriter.println(clientMessage);
-                }
-                else if (slaveToUse.equals("B"))
+                } else if (slaveToUse.equals("B"))
                 {
                     slaveBWriter.println(clientMessage);
                 }
             }
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             e.printStackTrace();
             System.exit(1);
@@ -81,8 +78,7 @@ public class MasterListenToClientThread extends Thread
         if (jobType.equals("A"))
         {
             return "A";
-        }
-        else
+        } else
         {
             return "B";
         }
